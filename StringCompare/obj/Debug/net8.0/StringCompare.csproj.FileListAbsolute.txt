@@ -1,0 +1,14 @@
+C:\Users\hasan\Desktop\Akademi\StringCompare\bin\Debug\net8.0\StringCompare.exe
+C:\Users\hasan\Desktop\Akademi\StringCompare\bin\Debug\net8.0\StringCompare.deps.json
+C:\Users\hasan\Desktop\Akademi\StringCompare\bin\Debug\net8.0\StringCompare.runtimeconfig.json
+C:\Users\hasan\Desktop\Akademi\StringCompare\bin\Debug\net8.0\StringCompare.dll
+C:\Users\hasan\Desktop\Akademi\StringCompare\bin\Debug\net8.0\StringCompare.pdb
+C:\Users\hasan\Desktop\Akademi\StringCompare\obj\Debug\net8.0\StringCompare.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hasan\Desktop\Akademi\StringCompare\obj\Debug\net8.0\StringCompare.AssemblyInfoInputs.cache
+C:\Users\hasan\Desktop\Akademi\StringCompare\obj\Debug\net8.0\StringCompare.AssemblyInfo.cs
+C:\Users\hasan\Desktop\Akademi\StringCompare\obj\Debug\net8.0\StringCompare.csproj.CoreCompileInputs.cache
+C:\Users\hasan\Desktop\Akademi\StringCompare\obj\Debug\net8.0\StringCompare.dll
+C:\Users\hasan\Desktop\Akademi\StringCompare\obj\Debug\net8.0\refint\StringCompare.dll
+C:\Users\hasan\Desktop\Akademi\StringCompare\obj\Debug\net8.0\StringCompare.pdb
+C:\Users\hasan\Desktop\Akademi\StringCompare\obj\Debug\net8.0\StringCompare.genruntimeconfig.cache
+C:\Users\hasan\Desktop\Akademi\StringCompare\obj\Debug\net8.0\ref\StringCompare.dll

@@ -1,0 +1,14 @@
+C:\Users\hasan\Desktop\Akademi\MethodPractice\bin\Debug\net8.0\MethodPractice.exe
+C:\Users\hasan\Desktop\Akademi\MethodPractice\bin\Debug\net8.0\MethodPractice.deps.json
+C:\Users\hasan\Desktop\Akademi\MethodPractice\bin\Debug\net8.0\MethodPractice.runtimeconfig.json
+C:\Users\hasan\Desktop\Akademi\MethodPractice\bin\Debug\net8.0\MethodPractice.dll
+C:\Users\hasan\Desktop\Akademi\MethodPractice\bin\Debug\net8.0\MethodPractice.pdb
+C:\Users\hasan\Desktop\Akademi\MethodPractice\obj\Debug\net8.0\MethodPractice.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hasan\Desktop\Akademi\MethodPractice\obj\Debug\net8.0\MethodPractice.AssemblyInfoInputs.cache
+C:\Users\hasan\Desktop\Akademi\MethodPractice\obj\Debug\net8.0\MethodPractice.AssemblyInfo.cs
+C:\Users\hasan\Desktop\Akademi\MethodPractice\obj\Debug\net8.0\MethodPractice.csproj.CoreCompileInputs.cache
+C:\Users\hasan\Desktop\Akademi\MethodPractice\obj\Debug\net8.0\MethodPractice.dll
+C:\Users\hasan\Desktop\Akademi\MethodPractice\obj\Debug\net8.0\refint\MethodPractice.dll
+C:\Users\hasan\Desktop\Akademi\MethodPractice\obj\Debug\net8.0\MethodPractice.pdb
+C:\Users\hasan\Desktop\Akademi\MethodPractice\obj\Debug\net8.0\MethodPractice.genruntimeconfig.cache
+C:\Users\hasan\Desktop\Akademi\MethodPractice\obj\Debug\net8.0\ref\MethodPractice.dll
