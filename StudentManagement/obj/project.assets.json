@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hasan\\Desktop\\Akademi\\StudentManagement\\StudentManagement.csproj",
+      "projectUniqueName": "C:\\Users\\hasan\\Desktop\\Akademi\\AcunmedyaAkademi\\StudentManagement\\StudentManagement.csproj",
       "projectName": "StudentManagement",
-      "projectPath": "C:\\Users\\hasan\\Desktop\\Akademi\\StudentManagement\\StudentManagement.csproj",
+      "projectPath": "C:\\Users\\hasan\\Desktop\\Akademi\\AcunmedyaAkademi\\StudentManagement\\StudentManagement.csproj",
       "packagesPath": "C:\\Users\\hasan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hasan\\Desktop\\Akademi\\StudentManagement\\obj\\",
+      "outputPath": "C:\\Users\\hasan\\Desktop\\Akademi\\AcunmedyaAkademi\\StudentManagement\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\hasan\\AppData\\Roaming\\NuGet\\NuGet.Config"
