@@ -1,0 +1,14 @@
+C:\Users\hasan\Desktop\Akademi\WordGuessGame\bin\Debug\net8.0\WordGuessGame.exe
+C:\Users\hasan\Desktop\Akademi\WordGuessGame\bin\Debug\net8.0\WordGuessGame.deps.json
+C:\Users\hasan\Desktop\Akademi\WordGuessGame\bin\Debug\net8.0\WordGuessGame.runtimeconfig.json
+C:\Users\hasan\Desktop\Akademi\WordGuessGame\bin\Debug\net8.0\WordGuessGame.dll
+C:\Users\hasan\Desktop\Akademi\WordGuessGame\bin\Debug\net8.0\WordGuessGame.pdb
+C:\Users\hasan\Desktop\Akademi\WordGuessGame\obj\Debug\net8.0\WordGuessGame.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hasan\Desktop\Akademi\WordGuessGame\obj\Debug\net8.0\WordGuessGame.AssemblyInfoInputs.cache
+C:\Users\hasan\Desktop\Akademi\WordGuessGame\obj\Debug\net8.0\WordGuessGame.AssemblyInfo.cs
+C:\Users\hasan\Desktop\Akademi\WordGuessGame\obj\Debug\net8.0\WordGuessGame.csproj.CoreCompileInputs.cache
+C:\Users\hasan\Desktop\Akademi\WordGuessGame\obj\Debug\net8.0\WordGuessGame.dll
+C:\Users\hasan\Desktop\Akademi\WordGuessGame\obj\Debug\net8.0\refint\WordGuessGame.dll
+C:\Users\hasan\Desktop\Akademi\WordGuessGame\obj\Debug\net8.0\WordGuessGame.pdb
+C:\Users\hasan\Desktop\Akademi\WordGuessGame\obj\Debug\net8.0\WordGuessGame.genruntimeconfig.cache
+C:\Users\hasan\Desktop\Akademi\WordGuessGame\obj\Debug\net8.0\ref\WordGuessGame.dll
