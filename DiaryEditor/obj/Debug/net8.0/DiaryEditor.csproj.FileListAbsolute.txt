@@ -1,0 +1,14 @@
+C:\Users\hasan\Desktop\Akademi\DiaryEditor\bin\Debug\net8.0\DiaryEditor.exe
+C:\Users\hasan\Desktop\Akademi\DiaryEditor\bin\Debug\net8.0\DiaryEditor.deps.json
+C:\Users\hasan\Desktop\Akademi\DiaryEditor\bin\Debug\net8.0\DiaryEditor.runtimeconfig.json
+C:\Users\hasan\Desktop\Akademi\DiaryEditor\bin\Debug\net8.0\DiaryEditor.dll
+C:\Users\hasan\Desktop\Akademi\DiaryEditor\bin\Debug\net8.0\DiaryEditor.pdb
+C:\Users\hasan\Desktop\Akademi\DiaryEditor\obj\Debug\net8.0\DiaryEditor.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hasan\Desktop\Akademi\DiaryEditor\obj\Debug\net8.0\DiaryEditor.AssemblyInfoInputs.cache
+C:\Users\hasan\Desktop\Akademi\DiaryEditor\obj\Debug\net8.0\DiaryEditor.AssemblyInfo.cs
+C:\Users\hasan\Desktop\Akademi\DiaryEditor\obj\Debug\net8.0\DiaryEditor.csproj.CoreCompileInputs.cache
+C:\Users\hasan\Desktop\Akademi\DiaryEditor\obj\Debug\net8.0\DiaryEditor.dll
+C:\Users\hasan\Desktop\Akademi\DiaryEditor\obj\Debug\net8.0\refint\DiaryEditor.dll
+C:\Users\hasan\Desktop\Akademi\DiaryEditor\obj\Debug\net8.0\DiaryEditor.pdb
+C:\Users\hasan\Desktop\Akademi\DiaryEditor\obj\Debug\net8.0\DiaryEditor.genruntimeconfig.cache
+C:\Users\hasan\Desktop\Akademi\DiaryEditor\obj\Debug\net8.0\ref\DiaryEditor.dll
