@@ -1,0 +1,14 @@
+C:\Users\hasan\Desktop\Akademi\ClassroomManagement\bin\Debug\net9.0\ClassroomManagement.exe
+C:\Users\hasan\Desktop\Akademi\ClassroomManagement\bin\Debug\net9.0\ClassroomManagement.deps.json
+C:\Users\hasan\Desktop\Akademi\ClassroomManagement\bin\Debug\net9.0\ClassroomManagement.runtimeconfig.json
+C:\Users\hasan\Desktop\Akademi\ClassroomManagement\bin\Debug\net9.0\ClassroomManagement.dll
+C:\Users\hasan\Desktop\Akademi\ClassroomManagement\bin\Debug\net9.0\ClassroomManagement.pdb
+C:\Users\hasan\Desktop\Akademi\ClassroomManagement\obj\Debug\net9.0\ClassroomManagement.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hasan\Desktop\Akademi\ClassroomManagement\obj\Debug\net9.0\ClassroomManagement.AssemblyInfoInputs.cache
+C:\Users\hasan\Desktop\Akademi\ClassroomManagement\obj\Debug\net9.0\ClassroomManagement.AssemblyInfo.cs
+C:\Users\hasan\Desktop\Akademi\ClassroomManagement\obj\Debug\net9.0\ClassroomManagement.csproj.CoreCompileInputs.cache
+C:\Users\hasan\Desktop\Akademi\ClassroomManagement\obj\Debug\net9.0\ClassroomManagement.dll
+C:\Users\hasan\Desktop\Akademi\ClassroomManagement\obj\Debug\net9.0\refint\ClassroomManagement.dll
+C:\Users\hasan\Desktop\Akademi\ClassroomManagement\obj\Debug\net9.0\ClassroomManagement.pdb
+C:\Users\hasan\Desktop\Akademi\ClassroomManagement\obj\Debug\net9.0\ClassroomManagement.genruntimeconfig.cache
+C:\Users\hasan\Desktop\Akademi\ClassroomManagement\obj\Debug\net9.0\ref\ClassroomManagement.dll
