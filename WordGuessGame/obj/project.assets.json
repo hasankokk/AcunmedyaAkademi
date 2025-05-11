@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hasan\\Desktop\\Akademi\\WordGuessGame\\WordGuessGame.csproj",
+      "projectUniqueName": "C:\\Users\\hasan\\Desktop\\Akademi\\AcunmedyaAkademi\\WordGuessGame\\WordGuessGame.csproj",
       "projectName": "WordGuessGame",
-      "projectPath": "C:\\Users\\hasan\\Desktop\\Akademi\\WordGuessGame\\WordGuessGame.csproj",
+      "projectPath": "C:\\Users\\hasan\\Desktop\\Akademi\\AcunmedyaAkademi\\WordGuessGame\\WordGuessGame.csproj",
       "packagesPath": "C:\\Users\\hasan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hasan\\Desktop\\Akademi\\WordGuessGame\\obj\\",
+      "outputPath": "C:\\Users\\hasan\\Desktop\\Akademi\\AcunmedyaAkademi\\WordGuessGame\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\hasan\\AppData\\Roaming\\NuGet\\NuGet.Config"

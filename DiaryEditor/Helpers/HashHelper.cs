@@ -1,7 +1,6 @@
 using System.Security.Cryptography;
 
 namespace DiaryEditor;
-
 public class HashHelper
 {
     public static string HashPassword(string password)

@@ -1,58 +1,86 @@
-using DiaryEditor.Classes;
+using DiaryEditor.Models;
 using DiaryEditor.Helpers;
+using DiaryEditor.Repository;
 
 namespace DiaryEditor;
 
 public class MyDiary
 {
-    public static bool StartApp(string username, bool userLogin)
+    private static readonly UserRepository _user = new UserRepository();
+    private static readonly DiaryRepository _daily = new DiaryRepository();
+
+     public static bool StartApp(string username, bool userLogin)
     {
-        do
+        // Çıkış işlemi için CancelKeyPress handler'ı
+        Console.CancelKeyPress += (sender, e) =>
         {
-            Thread.Sleep(1000);
+            UserRepository.CancelKeyPressHandler(username);
+            e.Cancel = true;
             Console.Clear();
-            int selectIndex = Helper.AskOption("Yapmak istediğin işlem nedir?", DiaryHelper.MenuStrings());
-            var select = DiaryHelper.MenuStrings(selectIndex - 1);
-            Console.WriteLine(selectIndex);
-            if (selectIndex == 1)
+            Console.WriteLine();
+            Helper.ShowSuccessMsg("Uygulamadan çıkış yapılıyor...");
+            Thread.Sleep(1000);
+            Environment.Exit(0);
+        };
+
+        if (_user.IsUserActiveOrInactive(username))
+        {
+            int userId = _user.GetUserById(username);
+            string existingPass = _daily.GetDailyPassword(userId);
+            string diaryPassword;
+
+            if (!string.IsNullOrEmpty(existingPass))
             {
-                Thread.Sleep(500);
-                Console.Clear();
-                var textPassword = Helper.Ask("Kaydınız için bir şifre belirleyin", true);
-                var recordContent = Helper.Ask("Kayıt etmek istediğiniz notu yazınız");
-                DailyManager.NewRecordDaily(username, textPassword, recordContent);
-                Helper.ShowSuccessMsg("Kayıt başarılı bir şekilde oluşturuldu.");
+                bool isVerified = DiaryHelper.PassMatch(existingPass, userId);
+
+                if (!isVerified)
+                {
+                    // yeni şifre veritabanında zaten güncellendi, yeniden alma
+                    diaryPassword = _daily.GetDailyPassword(userId);
+                }
+                else
+                {
+                    diaryPassword = existingPass;
+                }
+            }
+            else
+            {
+                diaryPassword = Helper.Ask("Kayıtlarınız için bir şifre belirleyiniz", true);
+                _daily.UpdateDailyPassword(userId, diaryPassword);
+                Helper.ShowSuccessMsg("Şifreniz başarıyla kaydedildi.");
             }
 
-            if (selectIndex == 2)
-            {
-                Thread.Sleep(500);
-                Console.Clear();
-                var pass = Helper.Ask("Kayıtlarınızı listelemek için lütfen şifrenizi giriniz");
-                DiaryHelper.ListDiary(username,pass);
-            }
 
-            if (selectIndex == 3)
+            while (userLogin)
             {
-                Thread.Sleep(500);
-                Console.Clear();
-                UserInfo.UserInformation(username);
-                Helper.ShowErrorMsg("Devam etmek için herhangi bir tuşa başın!");
-                Console.ReadKey(true);
-            }
+                int selectIndex = Helper.AskOption("Yapmak istediğin işlem nedir?", DiaryNavigationHelper.MenuStrings());
 
-            if (selectIndex == 4)
-            {
-                Console.Clear();
-                Thread.Sleep(500);
-                Helper.ShowSuccessMsg("Görüşmek üzere... Yarın yeniden bekliyorum...");
-                Thread.Sleep(1000);
-                userLogin = false;
-                return false;
-            }
-                
-        } while (userLogin);
+                switch (selectIndex)
+                {
+                    case 1:
+                        DiaryNavigationHelper.CreateNewRecord(userId, diaryPassword);
+                        Thread.Sleep(500);
+                        Console.Clear();
+                        break;
 
+                    case 2:
+                        DiaryNavigationHelper.ListRecords(userId, diaryPassword);
+                        Thread.Sleep(500);
+                        Console.Clear();
+                        break;
+
+                    case 3:
+                        DiaryNavigationHelper.HandleExit(username);
+                        Thread.Sleep(500);
+                        Console.Clear();
+                        return false;
+
+                    default:
+                        Helper.ShowErrorMsg("Geçersiz işlem, lütfen tekrar deneyin.");
+                        break;
+                }
+            }
+        }
         return false;
     }
 }

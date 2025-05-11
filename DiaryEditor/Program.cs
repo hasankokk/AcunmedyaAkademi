@@ -1,11 +1,11 @@
 ﻿using DiaryEditor;
-using DiaryEditor.Classes;
+using DiaryEditor.Data;
+using DiaryEditor.Models;
 using DiaryEditor.Helpers;
+using DiaryEditor.Repository;
 
 while(true)
 {
-    UserHelper.LoadCsv();
-    DiaryHelper.LoadCsvDaily();
     var firstQuestion = Helper.AskOption("Yapmak istediğiniz işlem?", ["Giriş Yap", "Kayıt Ol", "Çıkış Yap"]);
     Thread.Sleep(1000);
     Console.Clear();
@@ -17,14 +17,14 @@ while(true)
             if (userLogin)
             {
                 var active = MyDiary.StartApp(userLogUserName, userLogin);
-                if (active)
+                if (!active)
                     continue;
                 break;
             }
             break;
         
         case 2:
-            UserHelper.RegisterUser();
+            UserHelper.RegisterForm();
             break;
         case 3:
             Helper.ShowSuccessMsg("Uygulamadan çıkış yapılıyor...");

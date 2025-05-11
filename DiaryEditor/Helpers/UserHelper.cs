@@ -1,19 +1,13 @@
-using DiaryEditor.Classes;
+using DiaryEditor.Models;
+using DiaryEditor.Repository;
+using DiaryEditor.Validation;
 
 namespace DiaryEditor.Helpers;
 
 public static class UserHelper
 {
-    public static void LoadCsv()
-    {
-        var listUser = CsvHelper.CsvReadLoad("users.csv");
-        foreach (var u in listUser)
-        {
-            UserInfo.AddUserForCsv(u);
-            //Helper.ShowSuccessMsg($"{u.Id} {u.RegisterTime} {u.Username} {u.UserFirstName} {u.UserLastName} {u.UserPassword} {u.UserBirthDate} {u.UserGender} {u.UserEmail}");
-        }
-    }
-
+    private readonly static UserRepository _userRepository = new UserRepository();
+    private static readonly IsValid _isValid = new IsValid(); 
     public static string[] QuestionString()
     {
         string[] questionStrings = [
@@ -55,7 +49,7 @@ public static class UserHelper
             var question = Helper.AskOption("Güvenlik sorunuzu seçiniz", QuestionString());
             var questionString = QuestionString(question - 1);
             
-            if (!IsValid.IsValidQuestion(username, questionString, out string error))
+            if (!_isValid.IsValidQuestion(username, questionString, out string error))
             {
                 Helper.ShowErrorMsg(error);
                 return false;
@@ -72,7 +66,7 @@ public static class UserHelper
         {
             var inputAnswer = Helper.Ask("Güvenlik sorusu cevabı nedir?", true);
             
-            if (!IsValid.IsValidAnswer(username, inputAnswer, out string error))
+            if (!_isValid.IsValidAnswer(username, inputAnswer, out string error))
             {
                 Helper.ShowErrorMsg(error);
                 return false;
@@ -82,7 +76,40 @@ public static class UserHelper
         } while (!answerBool);
         return answerBool;
     }
-    public static void RegisterUser()
+
+    public static void CreateUser(string username, string name, string surname, string password, DateOnly birthdate,
+        string securityquestion, string securityanswer, string gender, string email)
+    {
+        var user = new User
+        {
+            Username = username,
+            FirstName = name,
+            LastName = surname,
+            Password = password,
+            BirthDate = birthdate,
+            SecurityQuestion = securityquestion,
+            SecurityAnswer = securityanswer,
+            Gender = gender,
+            Email = email
+        };
+        Helper.ShowSuccessMsg("Başarı ile kayıt oldunuz!");
+        _userRepository.AddUser(user);
+    }
+
+    public static bool ForgotPassword(string username)
+    {
+        if (QuestionBool(username))
+        {
+            if (AnswerBool(username))
+            {
+                var newPass = Helper.AskPassword("Yeni parola belirleyin.");
+                if (_userRepository.UpdatePassword(username, newPass))
+                    return true;
+            }
+        }
+        return false;
+    }
+    public static void RegisterForm()
     {
         Thread.Sleep(800);
         Console.Clear();
@@ -110,8 +137,7 @@ public static class UserHelper
                 break;
         }
         var email = Helper.Ask("E-Mail Adresinizi Giriniz", true);
-        UserInfo.AddUser(username, name, surname, userPass, birthDate, securityQuestion, securityAnswer ,gender, email);
-        Helper.ShowSuccessMsg("Başarı ile kayıt oldunuz!");
+        CreateUser(username, name, surname, userPass, birthDate, securityQuestion, securityAnswer, gender, email);
         Thread.Sleep(1000);
         Console.Clear();
     }
@@ -127,9 +153,15 @@ public static class UserHelper
         Console.Clear();
         if (loginSucces)
         {
-            CsvHelper.CsvCreator("journal.csv");
+            _userRepository.IsUserActive(login);
             return true;
         }
+
         return false;
+    }
+
+    public static void Disconnected(string username)
+    {
+        _userRepository.IsUserInactive(username);
     }
 }

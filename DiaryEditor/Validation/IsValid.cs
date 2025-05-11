@@ -1,11 +1,16 @@
-using DiaryEditor.Classes;
+using DiaryEditor.Data;
+using DiaryEditor.Models;
+using DiaryEditor.Data;
 using DiaryEditor.Helpers;
+using DiaryEditor.Repository;
 
-namespace DiaryEditor;
+namespace DiaryEditor.Validation;
 
-public static class IsValid
+public class IsValid
 {
-    public static bool IsValiduserName(string name, out string error)
+    private readonly AppDbContext _context = new AppDbContext();
+    private readonly UserRepository _userRepository = new UserRepository();
+    public bool IsValiduserName(string name, out string error)
     {
         error = "";
         if (name.Length < 5 || name.Length > 20)
@@ -14,7 +19,7 @@ public static class IsValid
             return false;
         }
 
-        if (UserInfo.GetUserName(name))
+        if (_userRepository.GetUser(name))
         {
             error = "Kullanıcı adı zaten kullanılıyor!";
             return false;
@@ -103,7 +108,7 @@ public static class IsValid
         return true;
     }
 
-    public static bool IsValidMail(string mail, out string errormail)
+    public bool IsValidMail(string mail, out string errormail)
     {
         errormail = "";
         var domain = mail.IndexOf('@');
@@ -116,6 +121,11 @@ public static class IsValid
         var mailPart = mail.Substring(0, domain);
         var domainPart = mail.Substring(domain + 1);
 
+        if (_context.Users.Any(u => u.Email == mailPart))
+        {
+            errormail = "Mail adresi zaten sistemimizde kayıtlı!";
+            return false;
+        }
         if (domainPart.StartsWith(".") || domainPart.EndsWith("."))
         {
             errormail = "Geçersiz bir domain alanı girdin. Alan adı kısmı . ile başlayıp . ile bitemez.";
@@ -129,7 +139,7 @@ public static class IsValid
         }
         return true;
     }
-    public static bool IsValidLogin(string login, out string errorLogin, out bool register)
+    public bool IsValidLogin(string login, out string errorLogin, out bool register)
     {
         errorLogin = "";
         register = false;
@@ -139,7 +149,7 @@ public static class IsValid
             return false;
         }
 
-        if (!UserInfo.GetUserName(login))
+        if (!_context.Users.Any(u => u.Username == login))
         {
             errorLogin = "Kullanıcı adı hatalı.";
             Helper.ShowErrorMsg(errorLogin);
@@ -161,7 +171,7 @@ public static class IsValid
         return true;
     }
 
-    public static bool IsValidLoginPassword(string username,string password, out string errorpass)
+    public bool IsValidLoginPassword(string username,string password, out string errorpass)
     {
         errorpass = "";
         if (!IsValidPassword(password,  out errorpass))
@@ -170,16 +180,15 @@ public static class IsValid
             return false;
         }
 
-        if (!UserInfo.GetUserPass(username, password, out errorpass))
+        if (!_userRepository.GetUserPass(username, password, out errorpass))
             return false;
         return true;
     }
     
-    public static bool IsValidQuestion(string username,string question, out string errorQuestion)
+    public bool IsValidQuestion(string username,string question, out string errorQuestion)
     {
         errorQuestion = "";
-        var userQuestion = UserInfo.GetUserQuestion(username);
-        if (userQuestion != question)
+        if (!_context.Users.Any(u => u.Username == username && u.SecurityQuestion == question))
         {
             errorQuestion = "Güvenlik sorusu yanlış!";
             return false;
@@ -187,11 +196,10 @@ public static class IsValid
         Helper.ShowInfoMsgLine("Güvenlik sorusu doğru!");
         return true;
     }
-    public static bool IsValidAnswer(string username,string answer, out string erroranswer)
+    public bool IsValidAnswer(string username,string answer, out string erroranswer)
     {
         erroranswer = "";
-        var userAnswer = UserInfo.GetUserAnswer(username);
-        if (userAnswer != answer)
+        if (!_context.Users.Any(u => u.Username == username && u.SecurityAnswer == answer))
         {
             erroranswer = "Güvenlik sorusu cevabı yanlış!";
             return false;

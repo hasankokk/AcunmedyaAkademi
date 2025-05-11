@@ -1,5 +1,4 @@
 using System.Security.Cryptography;
-
 namespace DiaryEditor.Helpers;
 
 public class CryptoHashHelper
@@ -61,6 +60,13 @@ public class CryptoHashHelper
             using var sr = new StreamReader(cs);
 
             return sr.ReadToEnd();
+        }
+        public static bool IsBase64String(string str)
+        {
+            if (string.IsNullOrWhiteSpace(str)) return false;
+
+            Span<byte> buffer = new Span<byte>(new byte[str.Length]);
+            return Convert.TryFromBase64String(str, buffer, out _);
         }
     }
 }

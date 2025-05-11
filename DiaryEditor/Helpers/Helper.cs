@@ -1,9 +1,10 @@
-using DiaryEditor.Classes;
+using DiaryEditor.Validation;
 
 namespace DiaryEditor.Helpers;
 
 public static class Helper
 {
+    private static readonly IsValid _isValid = new IsValid(); 
     public static string? Ask(string question, bool isRequired = false, string validationMsg = "Bu alanı boş bırakamazsın.")
     {
         string? response;
@@ -18,8 +19,8 @@ public static class Helper
                 ShowErrorMsg(validationMsg);
                 isValid = false;
             }
-
-            if (question == "Kullanıcı Adı Giriniz" && !IsValid.IsValiduserName(response, out string errorusername))
+            
+            if (question == "Kullanıcı Adı Giriniz" && !_isValid.IsValiduserName(response, out string errorusername))
             {
                 ShowErrorMsg(errorusername);
                 isValid = false;
@@ -31,21 +32,21 @@ public static class Helper
                 isValid = false;
             }
 
-            if (question == "E-Mail Adresinizi Giriniz" && !IsValid.IsValidMail(response, out string errormail))
+            if (question == "E-Mail Adresinizi Giriniz" && !_isValid.IsValidMail(response, out string errormail))
             {
                 ShowErrorMsg(errormail);
                 isValid = false;
             }
 
             if (question == "Kullanıcı Adı" &&
-                !IsValid.IsValidLogin(response, out string errorLogin, out bool isRegister))
+                !_isValid.IsValidLogin(response, out string errorLogin, out bool isRegister))
             {
                 if (!isRegister)
                     ShowErrorMsg(errorLogin);
                 if (isRegister)
                 {
                     ShowErrorMsg(errorLogin);
-                    UserHelper.RegisterUser();
+                    UserHelper.RegisterForm();
                 }
                 isValid = false;
                     
@@ -136,7 +137,7 @@ public static class Helper
                 isValidPass = false;
             }
             
-            if (!IsValid.IsValidLoginPassword(username, password, out string errorlogin))
+            if (!_isValid.IsValidLoginPassword(username, password, out string errorlogin))
             {
                 ShowErrorMsg(errorlogin);
                 isValidPass = false;
@@ -149,7 +150,7 @@ public static class Helper
                 {
                     Thread.Sleep(1000);
                     Console.Clear();
-                    if (UserInfo.ForgotPassword(username))
+                    if (UserHelper.ForgotPassword(username))
                         ShowSuccessMsg("Şifre yenileme işlemi başarılı tekrardan giriş yapınız.");
                 }
             }
@@ -175,18 +176,17 @@ public static class Helper
     {
         ShowColoredMsg(msg, ConsoleColor.Red);
     }
-
     public static void ShowInfoMsg(string msg)
     {
         ShowWriteColor(msg, ConsoleColor.Yellow);
     }
-    public static void ShowInfoMsgList(string msg)
-    {
-        ShowWriteColor(msg, ConsoleColor.DarkCyan);
-    }
     public static void ShowInfoMsgLine(string msg)
     {
         ShowColoredMsg(msg, ConsoleColor.Yellow);
+    }
+    public static void ShowMsg(string msg, ConsoleColor color)
+    {
+        ShowWriteColor(msg, color);
     }
     private static string ReadSecretLine()
     {
@@ -227,4 +227,5 @@ public static class Helper
         Console.Write(msg);
         Console.ResetColor();
     }
+    
 }
